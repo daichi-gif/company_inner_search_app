@@ -59,12 +59,16 @@ if not "initialized" in st.session_state:
 # タイトル表示
 cn.display_app_title()
 
-# モード表示
-cn.display_select_mode()
+# サイドバーにメニューを表示
+cn.display_sidebar_menu()
 
-# AIメッセージの初期表示
-cn.display_initial_ai_message()
 
+# 初回アクセス時の緑色ガイドメッセージを表示
+if len(st.session_state.messages) == 0:
+    cn.display_green_guide_message()
+
+# 黄色背景の警告メッセージを表示
+cn.display_warning_message()
 
 ############################################################
 # 5. 会話ログの表示
